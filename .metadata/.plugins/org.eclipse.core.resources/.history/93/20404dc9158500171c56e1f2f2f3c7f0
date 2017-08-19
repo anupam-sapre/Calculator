@@ -9,7 +9,7 @@ public class Calculator {
 	static Logger log = Logger.getLogger(Calculator.class.getName());
 	public static void main( String[] args )
 	{
-		if(args.length>=1){
+		if(args.length>1){
 			String input = args[0];
 			log.info("Input received is " + input);
 			input.replaceAll(" ", "");
@@ -19,9 +19,6 @@ public class Calculator {
 				System.out.println(val);
 			}catch(IllegalArgumentException e){
 				e.printStackTrace();
-			}catch(ArithmeticException ar){
-				ar.printStackTrace();
-				
 			}
 		}else{
 			System.out.println("Please enter a input for program.");
@@ -30,8 +27,7 @@ public class Calculator {
 	}
 
 
-	public static int calculate(String input,HashMap<String,Integer> variables)  throws IllegalArgumentException,
-	ArithmeticException{
+	public static int calculate(String input,HashMap<String,Integer> variables)  throws IllegalArgumentException{
 		int result =0;
 
 		if(input.substring(0,3).equals(Constants.add)){
@@ -114,21 +110,20 @@ public class Calculator {
 	}
 
 
-	public static int processDiv(String input,HashMap<String,Integer> variables) 
-			throws IllegalArgumentException,ArithmeticException{	
+	public static int processDiv(String input,HashMap<String,Integer> variables) throws IllegalArgumentException{
+		
 		log.debug("processDiv called");
 		int result =0;
-		try{	
+		try{
+			
 			int[] operands = extractOperands(input,variables);
 			result = operands[0] / operands[1];
 			log.debug("processDiv result" + result);
 			return result;
-			
 		}catch(ArithmeticException ar){
 			log.error("Arithmatic error for division of operands "+  input);
-			throw ar;
+			ar.printStackTrace();
 		}
-		
 
 	}
 

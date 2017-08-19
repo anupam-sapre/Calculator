@@ -9,7 +9,7 @@ public class Calculator {
 	static Logger log = Logger.getLogger(Calculator.class.getName());
 	public static void main( String[] args )
 	{
-		if(args.length>=1){
+		if(args.length>1){
 			String input = args[0];
 			log.info("Input received is " + input);
 			input.replaceAll(" ", "");

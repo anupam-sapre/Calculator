@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="CalcTest" project="calc" tests="5" started="5" failures="0" errors="0" ignored="0">
+  <testsuite name="calculator.calc.CalcTest" time="0.06">
+    <testcase name="testLet" classname="calculator.calc.CalcTest" time="0.058"/>
+    <testcase name="testDiv" classname="calculator.calc.CalcTest" time="0.0"/>
+    <testcase name="testAdd" classname="calculator.calc.CalcTest" time="0.001"/>
+    <testcase name="testMult" classname="calculator.calc.CalcTest" time="0.0"/>
+    <testcase name="testSub" classname="calculator.calc.CalcTest" time="0.001"/>
+  </testsuite>
+</testrun>
