@@ -60,13 +60,6 @@ public class Calculator {
 		return result;
 	}
 
-	/**
-	 * @param input
-	 * @param variables
-	 * @return
-	 * @throws IllegalArgumentException
-	 * Method to get result of a let operation
-	 */
 	public static int processLet(String input,HashMap<String,Integer> variables) 
 			throws IllegalArgumentException{
 		log.debug("ProcesLet called");
@@ -277,5 +270,6 @@ public class Calculator {
 		}
 		log.debug("getPos completed");
 		return j;
+
 	}
 }

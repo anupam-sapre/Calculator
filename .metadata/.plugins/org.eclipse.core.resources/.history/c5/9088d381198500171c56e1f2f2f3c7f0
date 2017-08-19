@@ -277,5 +277,6 @@ public class Calculator {
 		}
 		log.debug("getPos completed");
 		return j;
+
 	}
 }

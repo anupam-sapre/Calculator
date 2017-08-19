@@ -20,24 +20,17 @@ public class Calculator {
 			}catch(IllegalArgumentException e){
 				e.printStackTrace();
 			}catch(ArithmeticException ar){
-				ar.printStackTrace();		
+				ar.printStackTrace();
+				
 			}
 		}else{
 			System.out.println("Please enter a input for program.");
 		}
+
 	}
 
 
-	/**
-	 * @param input
-	 * @param variables
-	 * @return
-	 * @throws IllegalArgumentException
-	 * @throws ArithmeticException
-	 * Method to analyze operator in expression and calculate result
-	 */
-	public static int calculate(String input,HashMap<String,Integer> variables)  
-			throws IllegalArgumentException,
+	public static int calculate(String input,HashMap<String,Integer> variables)  throws IllegalArgumentException,
 	ArithmeticException{
 		int result =0;
 
@@ -60,15 +53,7 @@ public class Calculator {
 		return result;
 	}
 
-	/**
-	 * @param input
-	 * @param variables
-	 * @return
-	 * @throws IllegalArgumentException
-	 * Method to get result of a let operation
-	 */
-	public static int processLet(String input,HashMap<String,Integer> variables) 
-			throws IllegalArgumentException{
+	public static int processLet(String input,HashMap<String,Integer> variables) throws IllegalArgumentException{
 		log.debug("ProcesLet called");
 		if(input.contains(",")){
 			int firstPos = getPos(input,0);
@@ -95,56 +80,40 @@ public class Calculator {
 				log.debug("ProcesLet completed");
 				return Integer.valueOf(varThree);
 			}
+
+
 		}else{
 			IllegalArgumentException e = new IllegalArgumentException("Operator not valid");
 			log.error("Invalid operator Calculator.processLet " + input);
 			throw e;
 		}
+
+
 	}
 
 
-	/**
-	 * @param input
-	 * @param variables
-	 * @return
-	 * @throws IllegalArgumentException
-	 * Method to get result of a addition operation
-	 */
-	public static int processAdd(String input,HashMap<String,Integer> variables) 
-			throws IllegalArgumentException{
+
+	public static int processAdd(String input,HashMap<String,Integer> variables) throws IllegalArgumentException{
 		log.debug("processAdd called");
 		int result =0;
 		int[] operands = extractOperands(input,variables);
 		result = operands[0] + operands[1];
 		log.debug("processAdd result" +result);
 		return result;
+
 	}
 
-	/**
-	 * @param input
-	 * @param variables
-	 * @return
-	 * @throws IllegalArgumentException
-	 * Method to get result of a subtraction operation
-	 */
-	public static int processSub(String input,HashMap<String,Integer> variables) 
-			throws IllegalArgumentException{
+	public static int processSub(String input,HashMap<String,Integer> variables) throws IllegalArgumentException{
 		log.debug("processSub called");
 		int result =0;
 		int[] operands = extractOperands(input,variables);
 		result = operands[0] - operands[1];
 		log.debug("processSub result" + result);
 		return result;
+
 	}
 
-	/**
-	 * @param input
-	 * @param variables
-	 * @return
-	 * @throws IllegalArgumentException
-	 * @throws ArithmeticException
-	 * Method to get result of a division operation
-	 */
+
 	public static int processDiv(String input,HashMap<String,Integer> variables) 
 			throws IllegalArgumentException,ArithmeticException{	
 		log.debug("processDiv called");
@@ -161,15 +130,7 @@ public class Calculator {
 		}
 	}
 
-	/**
-	 * @param input
-	 * @param variables
-	 * @return
-	 * @throws IllegalArgumentException
-	 * Method to get result of a multiply operation
-	 */
-	public static int processMultiply(String input,HashMap<String,Integer> variables) 
-			throws IllegalArgumentException{
+	public static int processMultiply(String input,HashMap<String,Integer> variables) throws IllegalArgumentException{
 		log.debug("processMultiply called");
 		int result =0;
 		int[] operands = extractOperands(input,variables);
@@ -179,12 +140,6 @@ public class Calculator {
 
 	}
 
-	/**
-	 * @param input
-	 * @param variables
-	 * @return
-	 * Method to calculate operand expression and return operand values.
-	 */
 	public static int[] extractOperands(String input,HashMap<String,Integer> variables){
 		log.debug("extractOperands called");
 		int[] result = new int[2];
@@ -222,12 +177,6 @@ public class Calculator {
 		return result;
 	}
 
-	
-	/**
-	 * @param inputStr
-	 * @return
-	 * Method to find if any operator is part of the expression
-	 */
 	public static boolean checkOperators(String inputStr )
 	{
 		String[] items = {Constants.add,Constants.let,Constants.mult,Constants.div,Constants.sub};
@@ -242,17 +191,6 @@ public class Calculator {
 		return false;
 	}
 
-	
-	/**
-	 * @param input
-	 * @param num
-	 * @return
-	 * 
-	 * Method to find the position of ',' between two operands.
-	 * num is the operand number to be found
-	 * 
-	 * ex getPos("1,2" , 0) will give result 1 
-	 */
 	public static int getPos(String input,int num){
 		char[] arr = input.toCharArray();
 		int brackets =0;
@@ -277,5 +215,6 @@ public class Calculator {
 		}
 		log.debug("getPos completed");
 		return j;
+
 	}
 }

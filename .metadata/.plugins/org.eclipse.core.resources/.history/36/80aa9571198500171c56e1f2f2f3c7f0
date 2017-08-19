@@ -36,8 +36,7 @@ public class Calculator {
 	 * @throws ArithmeticException
 	 * Method to analyze operator in expression and calculate result
 	 */
-	public static int calculate(String input,HashMap<String,Integer> variables)  
-			throws IllegalArgumentException,
+	public static int calculate(String input,HashMap<String,Integer> variables)  throws IllegalArgumentException,
 	ArithmeticException{
 		int result =0;
 
@@ -60,15 +59,7 @@ public class Calculator {
 		return result;
 	}
 
-	/**
-	 * @param input
-	 * @param variables
-	 * @return
-	 * @throws IllegalArgumentException
-	 * Method to get result of a let operation
-	 */
-	public static int processLet(String input,HashMap<String,Integer> variables) 
-			throws IllegalArgumentException{
+	public static int processLet(String input,HashMap<String,Integer> variables) throws IllegalArgumentException{
 		log.debug("ProcesLet called");
 		if(input.contains(",")){
 			int firstPos = getPos(input,0);
@@ -103,15 +94,7 @@ public class Calculator {
 	}
 
 
-	/**
-	 * @param input
-	 * @param variables
-	 * @return
-	 * @throws IllegalArgumentException
-	 * Method to get result of a addition operation
-	 */
-	public static int processAdd(String input,HashMap<String,Integer> variables) 
-			throws IllegalArgumentException{
+	public static int processAdd(String input,HashMap<String,Integer> variables) throws IllegalArgumentException{
 		log.debug("processAdd called");
 		int result =0;
 		int[] operands = extractOperands(input,variables);
@@ -127,8 +110,7 @@ public class Calculator {
 	 * @throws IllegalArgumentException
 	 * Method to get result of a subtraction operation
 	 */
-	public static int processSub(String input,HashMap<String,Integer> variables) 
-			throws IllegalArgumentException{
+	public static int processSub(String input,HashMap<String,Integer> variables) throws IllegalArgumentException{
 		log.debug("processSub called");
 		int result =0;
 		int[] operands = extractOperands(input,variables);
@@ -277,5 +259,6 @@ public class Calculator {
 		}
 		log.debug("getPos completed");
 		return j;
+
 	}
 }
