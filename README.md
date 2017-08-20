@@ -7,8 +7,11 @@ Let has following syntax let(variable, value, expression)
 Installation:
 Checkout git respository.
 In calc folder
+
 mvn clean package
+
 cd target
+
 java -jar calc-1.0.0-jar-with-dependencies.jar input
 
 
